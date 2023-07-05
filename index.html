@@ -56,30 +56,35 @@
         <div
           class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer choice"
           id="1"
+          data-choice="1"
         >
           1
         </div>
         <div
           class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer choice"
           id="2"
+          data-choice="2"
         >
           2
         </div>
         <div
           class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer choice"
           id="3"
+          data-choice="3"
         >
           3
         </div>
         <div
           class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer choice"
           id="4"
+          data-choice="4"
         >
           4
         </div>
         <div
           class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer choice"
           id="5"
+          data-choice="5"
         >
           5
         </div>
@@ -91,21 +96,27 @@
         SUBMIT
       </button>
     </div>
-    1 2 3 4 5 Submit
 
-    <!-- Rating state end -->
-
-    <!-- Thank you state start -->
     <div
-      class="w-[350px] h-[350px] rounded-3xl bg-[#252d37] hidden"
+      class="lg:w-[375px] lg:h-[400px] w-[360px] h-[385px] rounded-3xl bg-[hsl(216_12%_8%)] hidden items-center flex flex-col"
       id="thanks"
-    ></div>
-    You selected
-    <!-- Add rating here -->
-    out of 5 Thank you! We appreciate you taking the time to give a rating. If
-    you ever need more support, don’t hesitate to get in touch!
-
-    <!-- Thank you state end -->
+    >
+      <div class="mt-12">
+        <img src="./images/illustration-thank-you.svg" alt="" />
+      </div>
+      <div
+        class="bg-[hsl(213_19%_18%)] rounded-full text-[hsl(25_97%_53%)] py-2 px-4 my-8"
+      >
+        You selected <span id="rating"></span> out of 5
+      </div>
+      <h2 class="text-white text-2xl tracking-widest mb-2">Thank you!</h2>
+      <p
+        class="text-[15px] text-[hsl(216_12%_54%)] text-center px-5 tracking-[-0.015em]"
+      >
+        We appreciate you taking the time to give a rating. If you ever need
+        more support, don’t hesitate to get in touch!
+      </p>
+    </div>
 
     <div class="attribution text-white">
       Challenge by
@@ -113,5 +124,34 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Kris Marshall</a>.
     </div>
+    <script>
+      const thanks = document.getElementById("thanks");
+      const rating = document.getElementById("rating");
+      const submit = document.getElementById("submit");
+      const main = document.getElementById("main");
+      const choice = document.querySelectorAll(".choice");
+
+      let value;
+
+      function handleSelection(e) {
+        value = e.target.dataset.choice;
+        choice.forEach((item) => {
+          item.classList.remove("active");
+        });
+        e.target.classList.add("active");
+      }
+
+      function handleRating() {
+        rating.innerText = value;
+        main.classList.add("hidden");
+        thanks.classList.remove("hidden");
+      }
+
+      choice.forEach((item) => {
+        item.addEventListener("click", handleSelection);
+      });
+
+      submit.addEventListener("click", handleRating);
+    </script>
   </body>
 </html>
