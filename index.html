@@ -11,7 +11,13 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@500;700&family=Outfit:wght@400;700&family=Overpass:wght@400;700&family=Titillium+Web:wght@200&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Frontend Mentor | Interactive rating component</title>
 
@@ -26,16 +32,74 @@
       }
     </style>
   </head>
-  <body>
+  <body class="bg-black h-screen flex flex-col justify-center items-center">
     <!-- Rating state start -->
-
-    How did we do? Please let us know how we did with your support request. All
-    feedback is appreciated to help us improve our offering! 1 2 3 4 5 Submit
+    <div
+      class="w-[375px] h-[400px] rounded-3xl bg-[hsl(216_12%_8%)] flex flex-col gap-5 p-2"
+      id="main"
+    >
+      <div class="w-12 m-6">
+        <div class="p-4 rounded-full bg-[hsl(213_19%_18%)]">
+          <img src="./images/icon-star.svg" alt="" />
+        </div>
+      </div>
+      <h2 class="text-white ml-4 pl-2 text-2xl tracking-wider">
+        How did we do?
+      </h2>
+      <p
+        class="text-[hsl(216_12%_54%)] ml-4 px-2 text-[15px] leading-6 tracking-tighter"
+      >
+        Please let us know how we did with your support request. All feedback is
+        appreciated to help us improve our offering!
+      </p>
+      <div class="flex gap-5 ml-4">
+        <div
+          class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer active:text-white active:bg-[hsl(217_12%_63%)] active"
+          id="1"
+        >
+          1
+        </div>
+        <div
+          class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer active:text-white active:bg-[hsl(217_12%_63%)]"
+          id="2"
+        >
+          2
+        </div>
+        <div
+          class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer active:text-white active:bg-[hsl(217_12%_63%)]"
+          id="3"
+        >
+          3
+        </div>
+        <div
+          class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer active:text-white active:bg-[hsl(217_12%_63%)]"
+          id="4"
+        >
+          4
+        </div>
+        <div
+          class="w-12 h-12 rounded-full bg-[hsl(213_19%_18%)] text-center pt-3 text-[hsl(216_12%_54%)] hover:bg-[hsl(25_97%_53%)] hover:text-white hover:cursor-pointer active:text-white active:bg-[hsl(217_12%_63%)]"
+          id="5"
+        >
+          5
+        </div>
+      </div>
+      <button
+        id="submit"
+        class="rounded-full bg-[hsl(25_97%_53%)] text-white hover:bg-white hover:text-[hsl(25_97%_53%)] mx-4 p-2 mb-3"
+      >
+        SUBMIT
+      </button>
+    </div>
+    1 2 3 4 5 Submit
 
     <!-- Rating state end -->
 
     <!-- Thank you state start -->
-
+    <div
+      class="w-[350px] h-[350px] rounded-3xl bg-[#252d37] hidden"
+      id="thanks"
+    ></div>
     You selected
     <!-- Add rating here -->
     out of 5 Thank you! We appreciate you taking the time to give a rating. If
@@ -43,11 +107,11 @@
 
     <!-- Thank you state end -->
 
-    <div class="attribution">
+    <div class="attribution text-white">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="#">Kris Marshall</a>.
     </div>
   </body>
 </html>
